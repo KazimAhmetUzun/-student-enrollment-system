@@ -1,0 +1,18 @@
+using MongoDB.Bson;
+using MongoDB.Driver;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace StudentRegisterWithMongo
+{
+    static class Program
+    {
+        static void Main(string[] args)
+        {
+            MongoClient client = new MongoClient();
+            var db = client.GetDatabase("studentDB");
+            var coll = db.GetCollection<Student>("student");
+            var stds = db.GetCollection<BsonDocument>("student");
